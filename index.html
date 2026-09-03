@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>天使神諭卡 · 大地占卜啟示</title>
+  <title>天使神諭卡 · 大地占卜啟示與 22 大天使聖義圖鑑</title>
   
-  <!-- 載入明亮大地色系所需的外部 CDN 資源 -->
+  <!-- 載入外部 CDN 資源 -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js" crossorigin></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js" crossorigin></script>
@@ -68,28 +68,31 @@
     }
   </style>
 </head>
-<body class="bg-gradient-to-b from-amber-50 via-stone-50 to-amber-100/30 min-h-screen text-stone-800 antialiased m-0">
+<body class="bg-gradient-to-b from-amber-50 via-stone-50 to-amber-100/30 min-h-screen text-stone-800 antialiased m-0 font-sans selection:bg-amber-200 selection:text-amber-900">
 
   <div id="root"></div>
 
-  <!-- React 邏輯與介面渲染 -->
   <script type="text/babel">
     const { useState, useEffect, useRef } = React;
 
     // ==========================================
-    // 2. 整合 22 位大天使與雙生光神聖牌組
+    // 整合 22 位大天使與雙生光完整深度寓意數據庫
     // ==========================================
     const ANGEL_CARDS = [
-      // 第一排 (Row 1): 7張大天使
+      // 第一排 (Row 1): 7張主要大天使
       {
         id: 1,
         name: "大天使米迦勒 (Archangel Michael)",
         title: "神聖保護與勇氣 (Divine Protection & Courage)",
         message: "「你是安全且受守護的。切斷負面能量連結，勇敢找回你內在的力量，我將與你同行。」",
+        symbolism: "湛藍藍光光束、利劍斬斷乙太能量鏈、堅固的信仰之盾",
+        meaning: "米迦勒是天界大軍的總領，象徵絕對的神聖力量與勇氣。當此卡出現，代表你目前正受到無微不至的靈性保護。你若正面臨恐懼、焦慮或被有毒的人際關係捆綁，米迦勒正提醒你：你有能力說『不』，並揮劍斬斷不再服務於你的能量束縛。",
+        action: "進行「光之劍切割冥想」：想像湛藍色光芒包圍身體，並用光之劍輕輕切斷與他人負面情緒的連結。",
         color: "from-amber-900/90 via-stone-800/95 to-amber-800/90 border-amber-400/40",
         glow: "rgba(245, 158, 11, 0.45)",
         keyword: "保護 / 勇氣 / 斬斷負能量",
         element: "光之劍",
+        type: "primary",
         row: 1,
         bgPos: "12.5% 6.5%",
         bgSize: "900% 300%"
@@ -99,10 +102,14 @@
         name: "大天使加百列 (Archangel Gabriel)",
         title: "溝通與神聖訊息 (Communication & Divine Messages)",
         message: "「展現你的真實之聲。作為訊息傳遞者，我正守護著你的表達、創意、育兒與生命新篇章。」",
+        symbolism: "黃金號角、百合花束、璀璨的白金色光暈",
+        meaning: "加百列是神聖的信使，代表真理的傳達與創意的萌芽。這張卡牌鼓勵你不再壓抑真實的感受，透過寫作、演講、藝術或誠摯的對話將內心話勇敢表達出來。同時，這也是涉及懷孕、撫育新生命或開啟全新計畫的吉祥徵兆。",
+        action: "今日試著寫下日記或對親近的人坦誠表達一個內心深處真實的想法。",
         color: "from-amber-950/95 via-stone-900/95 to-amber-900/90 border-amber-500/40",
         glow: "rgba(245, 158, 11, 0.45)",
         keyword: "溝通 / 表達 / 訊息傳遞",
         element: "黃金號角",
+        type: "primary",
         row: 1,
         bgPos: "25% 6.5%",
         bgSize: "900% 300%"
@@ -112,10 +119,14 @@
         name: "大天使拉斐爾 (Archangel Raphael)",
         title: "神聖療癒與安康 (Divine Healing & Restoration)",
         message: "「將你的痛苦與憂慮交託給我。翠綠色的療癒光芒正包圍著你，促成身心靈的平衡與旅行平安。」",
+        symbolism: "翡翠綠色療癒光芒、隨身旅人杖、甘霖降臨",
+        meaning: "拉斐爾是天界的聖醫，負責帶來身體、情緒與心靈的深層復原。當拉斐爾來到你身邊，暗示你的身心此刻需要休養生息與溫柔對待。請信任自然療癒的力量，並關注飲食、作息與自然環境對健康的正面影響。",
+        action: "多喝溫水，到公園赤腳踩草地（接地氣），並允許自己獲得充足的睡眠。",
         color: "from-amber-900/95 via-orange-900/95 to-amber-955/90 border-amber-400/40",
         glow: "rgba(245, 158, 11, 0.45)",
         keyword: "療癒 / 康復 / 身心平衡",
         element: "翡翠光芒",
+        type: "primary",
         row: 1,
         bgPos: "37.5% 6.5%",
         bgSize: "900% 300%"
@@ -125,10 +136,14 @@
         name: "大天使烏列爾 (Archangel Uriel)",
         title: "智慧與靈光啟蒙 (Wisdom & Divine Light)",
         message: "「相信這份直覺與靈感。我已將神聖智慧之火置於你心中，在混亂中為你帶來清晰洞見與和平。」",
+        symbolism: "掌心的智慧明燈、金紅色的啟蒙之火、如日光般的靈光",
+        meaning: "烏列爾意為『神之光』，專門解決心靈迷惘、腦海混沌與複雜決策。此卡提示你，解決困局的答案並不需要外求，因為神聖智慧已經以『靈光一閃』或『直覺念頭』的形式降臨你的腦海。請靜下心來聆聽內在的智慧指引。",
+        action: "遇到抉擇時，閉上眼深呼吸三次，記錄下第一個浮現在腦海中的想法。",
         color: "from-amber-955/90 via-red-905/95 to-stone-900/90 border-amber-500/40",
         glow: "rgba(239, 68, 68, 0.35)",
         keyword: "智慧 / 靈感 / 清晰洞見",
         element: "智慧之火",
+        type: "primary",
         row: 1,
         bgPos: "50% 6.5%",
         bgSize: "900% 300%"
@@ -138,10 +153,14 @@
         name: "大天使夏繆爾 (Archangel Chamuel)",
         title: "無條件之愛與和諧 (Unconditional Love & Harmony)",
         message: "「愛是宇宙最強大的力量。尋求神聖的和諧，協助轉化人際關係的挑戰，帶來真正的和解。」",
+        symbolism: "粉紅心靈光暈、和諧和平鴿、擁抱的雙翼",
+        meaning: "夏繆爾是神聖之愛的守護者，專門尋找失落的人事物（包含失去的愛、自信、工作或物品）。這張卡牌傳遞著『以愛化解仇恨與嫌隙』的召喚。當你用同理與愛對待自己與他人時，僵持的關係將出現奇蹟般的和解與轉機。",
+        action: "對自己說三遍：「我值得被無條件地愛著與尊重。」並向有隔閡的人發送善意念頭。",
         color: "from-amber-900/95 via-orange-955/95 to-amber-955/90 border-amber-400/40",
         glow: "rgba(244, 63, 94, 0.35)",
         keyword: "愛與和諧 / 人際和解 / 自愛",
         element: "心靈粉光",
+        type: "primary",
         row: 1,
         bgPos: "62.5% 6.5%",
         bgSize: "900% 300%"
@@ -151,10 +170,14 @@
         name: "大天使薩德基爾 (Archangel Zadkiel)",
         title: "慈悲寬恕與轉化 (Mercy, Forgiveness & Transformation)",
         message: "「用同理與寬恕釋放過去的痛苦。紫色火焰協助你轉化業力，帶來深層的靈性自由。」",
+        symbolism: "紫羅蘭轉化火焰、解開枷鎖的手、慈悲聖杯",
+        meaning: "薩德基爾掌管紫光轉化與靈性記憶。這張卡提醒你：『執著於恨，就像自己喝下毒藥卻希望對方受害。』寬恕並非代表認同傷害，而是選擇將自己從過去的痛苦枷鎖中釋放出來，讓心靈獲得真正的自由與重生。",
+        action: "寫下一件令你耿耿於懷的舊事，寫完後安全地將紙張撕碎，象徵將情緒交由紫色火焰燒灼淨化。",
         color: "from-stone-900/95 via-amber-950/95 to-amber-900/90 border-amber-500/40",
         glow: "rgba(245, 158, 11, 0.45)",
         keyword: "寬恕 / 業力轉化 / 靈性自由",
         element: "紫色火焰",
+        type: "primary",
         row: 1,
         bgPos: "75% 6.5%",
         bgSize: "900% 300%"
@@ -164,25 +187,33 @@
         name: "大天使約菲爾 (Archangel Jophiel)",
         title: "神聖之美與淨化 (Divine Beauty & Mind Cleansing)",
         message: "「淨化思想與生活空間。當你掃除雜亂，便能看見圍繞在生命與靈魂四周的神聖美感。」",
-        color: "from-amber-955/90 via-stone-900/95 to-orange-950/90 border-amber-400/45",
+        symbolism: "金色花環、洗滌心靈的淨泉、美與秩序之光",
+        meaning: "約菲爾意為『神之美』，祂幫助我們清除負面思想、雜亂環境與混亂的能量場。當這張卡出現，預示著你需要為生活進行『斷捨離』。不管是清空房間雜物，還是洗滌心靈負面念頭，美與靈感的流動將在你清空空間後蓬勃而生。",
+        action: "整理桌面或房間的一角，並為自己買一束鮮花擺放在生活空間中。",
+        color: "from-amber-955/90 via-stone-900/95 to-orange-955/90 border-amber-400/45",
         glow: "rgba(234, 179, 8, 0.45)",
         keyword: "神聖之美 / 思想淨化 / 空間清理",
         element: "美之金光",
+        type: "primary",
         row: 1,
         bgPos: "87.5% 6.5%",
         bgSize: "900% 300%"
       },
 
-      // 第二排 (Row 2): 8張大天使與雙生光
+      // 第二排 (Row 2): 8張主要大天使與雙生光
       {
         id: 8,
         name: "大天使漢尼爾 (Archangel Haniel)",
         title: "神聖恩典與月光直覺 (Divine Grace & Moon Intuition)",
         message: "「開啟你的靈性天賦。順應月光的柔和能量，以優雅而泰然自若的態度迎向生活的轉變。」",
+        symbolism: "滿月月光、珍珠銀羽、淡藍與蛋白石交織的恩典之光",
+        meaning: "漢尼爾連結著月亮週期與女性神聖能量。這張卡提示你：生命有其順流與逆流，就像月亮的盈虧變化。學會信任自己的直覺與週期，不必強求時刻處於高峰，以優雅且充滿恩典的姿態順應生命的改變。",
+        action: "在月光下進行冥想，感受月光撫慰情緒，並記錄下今晚夢境給予你的直覺啟示。",
         color: "from-amber-900/95 via-orange-900/95 to-stone-900/90 border-amber-400/45",
         glow: "rgba(249, 115, 22, 0.45)",
         keyword: "恩典 / 直覺 / 泰然自若",
         element: "月光銀羽",
+        type: "primary",
         row: 2,
         bgPos: "0% 50%",
         bgSize: "800% 300%"
@@ -192,10 +223,14 @@
         name: "大天使亞列爾 (Archangel Ariel)",
         title: "自然大地與顯化豐盛 (Nature & Manifesting Abundance)",
         message: "「大地母親正源源不絕地滋養你。守護自然與萬物，敞開雙手接納物質生活的充沛富足。」",
+        symbolism: "溫和的獅子、翠綠森林、滾滾流入的物質豐盛之泉",
+        meaning: "亞列爾意為『神的獅子』，祂是大地自然界、動物與物質顯化的守護天使。這張卡宣告著你的物質與經濟需求正受到天界眷顧。只要你維持勇敢無懼的心，並尊重大地萬物，你的顯化能力將達到高峰。",
+        action: "去戶外公園散步、抱抱大樹、或是照顧家中的植物與寵物，感受與大地連結。",
         color: "from-stone-900/95 via-amber-955/95 to-amber-900/90 border-amber-500/40",
         glow: "rgba(245, 158, 11, 0.45)",
         keyword: "自然守護 / 豐盛顯化 / 物質富足",
         element: "獅子勇氣",
+        type: "primary",
         row: 2,
         bgPos: "14.28% 50%",
         bgSize: "800% 300%"
@@ -205,10 +240,14 @@
         name: "大天使麥達昶 (Archangel Metatron)",
         title: "神聖幾何與宇宙秩序 (Sacred Geometry & Cosmic Order)",
         message: "「調頻你的脈輪與能量場。神聖幾何正提升你的靈性頻率，特別關懷高敏感靈魂與孩童。」",
+        symbolism: "旋轉的麥達昶立方體、七彩脈輪光軸、宇宙幾何幾何網格",
+        meaning: "麥達昶曾是人間的先知以諾，專門運用神聖幾何立方體來清理人體的脈輪能量。這張卡特別來到高敏感人群與孩童身邊，提示你目前可能受到了外界過多濁氣的干擾，需要透過能量清理來維持清明與神聖秩序。",
+        action: "想像一個旋轉的麥達昶立方體從頭頂穿過全身七大脈輪，將所有沉重負能量吸走並轉化。",
         color: "from-amber-955/90 via-stone-900/95 to-amber-900/95 border-amber-400/45",
         glow: "rgba(245, 158, 11, 0.45)",
         keyword: "宇宙秩序 / 脈輪淨化 / 高敏感關懷",
         element: "麥達昶立方",
+        type: "primary",
         row: 2,
         bgPos: "28.57% 50%",
         bgSize: "800% 300%"
@@ -218,10 +257,14 @@
         name: "大天使拉結爾 (Archangel Raziel)",
         title: "宇宙祕法與靈視力 (Cosmic Secrets & Clairvoyance)",
         message: "「看穿表象的幻象，解鎖深層的靈性知識。宇宙的神聖祕法與前世記憶正在為你揭曉。」",
+        symbolism: "彩虹光的耀眼光暈、記錄宇宙知識的神聖之書、第三眼靈光",
+        meaning: "拉結爾是神聖秘密的守護者，站立於神的寶座旁紀錄一切宇宙真理。當拉結爾出現，意味著你的第三眼與靈性悟性正在大幅開展。你將開始看透世俗的幻象，理解事件背後更深層的業力因果與靈魂契約。",
+        action: "研讀一本靈性成長書籍，或是留意近期不斷重複出現的神聖數字與符號（如111, 888）。",
         color: "from-stone-900/95 via-stone-955/95 to-amber-955/90 border-amber-500/40",
         glow: "rgba(245, 158, 11, 0.45)",
         keyword: "宇宙祕法 / 靈視力 / 解鎖智慧",
         element: "彩虹祕法",
+        type: "primary",
         row: 2,
         bgPos: "42.85% 50%",
         bgSize: "800% 300%"
@@ -231,10 +274,14 @@
         name: "大天使信仰 (Archangel Faith)",
         title: "堅定信念與勝過恐懼 (Steadfast Faith & Trust)",
         message: "「在迷惘中堅守心中的光明。我是米迦勒的雙生光，協助你建立無可撼動的內在信任，戰勝恐懼。」",
+        symbolism: "藍光信仰之盾、矗立於風暴中的堅定光芒",
+        meaning: "大天使信仰是米迦勒的神聖雙生光，象徵著在黑暗與迷惘中最堅定的信念。這張卡牌提示你，外在環境或許看起來充滿不確定性，但『信念』是開闢道路的基石。只要你對神聖秩序保持信心，恐懼便無法撼動你的靈魂。",
+        action: "當懷疑萌生時，手放在心口默默念頌：「我信任生命的過程，我是安全且受指引的。」",
         color: "from-stone-900/95 via-amber-950/95 to-stone-955/95 border-amber-400/40",
         glow: "rgba(245, 158, 11, 0.45)",
         keyword: "堅定信念 / 內在信任 / 戰勝恐懼",
         element: "藍光信仰盾",
+        type: "twin",
         row: 2,
         bgPos: "57.14% 50%",
         bgSize: "800% 300%"
@@ -244,10 +291,14 @@
         name: "大天使希望 (Archangel Hope)",
         title: "永恆希望與新生指引 (Eternal Hope & Renewal)",
         message: "「低谷過後即是黎明。我是加百列的雙生光，在轉型期為你點亮新生的指引之光，保持純潔的期待。」",
+        symbolism: "破開黑夜的希望晨曦、翱翔的純白和平鴿",
+        meaning: "大天使希望是加百列的雙生光，祂帶來絕處逢生的喜悅與曙光。如果你正經歷人生的低谷、失落或轉型陣痛期，希望大天使正向你許諾：『最艱難的時刻已經過去，光明與新生即將全面展開！』",
+        action: "點燃一支香氛蠟燭，許下對未來的期待，並清空一件舊物品以迎接新能量。",
         color: "from-amber-955/90 via-orange-955/95 to-stone-900/90 border-amber-500/40",
         glow: "rgba(249, 115, 22, 0.35)",
         keyword: "永恆希望 / 心靈新生 / 低谷轉折",
         element: "純潔希望光",
+        type: "twin",
         row: 2,
         bgPos: "71.42% 50%",
         bgSize: "800% 300%"
@@ -257,10 +308,14 @@
         name: "大天使聖母瑪利亞 (Archangel Mother Mary)",
         title: "神聖慈悲與撫慰 (Divine Mercy & Comfort)",
         message: "「將疲憊與傷痛安放於我懷中。我是拉斐爾的雙生光，以無條件的神聖母愛與慈悲溫柔撫慰你。」",
+        symbolism: "水藍色的慈悲斗篷、白玫瑰花環、無條件愛之光束",
+        meaning: "聖母瑪利亞同時具備大天使的靈格，是拉斐爾的雙生光。祂帶來極致溫柔的母性療癒，撫慰內在小孩的創傷與疲憊。這張卡牌告訴你：你不需要總是咬牙堅強，允許自己流淚與軟弱，神聖母愛正溫柔擁抱著你。",
+        action: "給自己一個溫暖的擁抱，對內在小孩說：「辛苦你了，你已經做得很好，我深深愛著你。」",
         color: "from-stone-900/95 via-amber-900/90 to-amber-955/95 border-amber-400/40",
         glow: "rgba(245, 158, 11, 0.45)",
         keyword: "神聖慈悲 / 母愛撫慰 / 心靈滋養",
         element: "聖母玫瑰",
+        type: "twin",
         row: 2,
         bgPos: "85.71% 50%",
         bgSize: "800% 300%"
@@ -270,10 +325,14 @@
         name: "大天使極光 (Archangel Aurora)",
         title: "黎明覺醒與落實行動 (Dawn Awakening & Action)",
         message: "「新一日的晨光已然破曉。我是烏列爾的雙生光，協助你喚醒感官，將神聖智慧落實於行動中。」",
+        symbolism: "粉紫金三色晨曦極光、甦醒的大地植物",
+        meaning: "大天使極光是烏列爾的雙生光，代表著『智慧的落實與實踐』。夢想若沒有行動，便只是空中樓閣。極光大天使帶來晨曦般的喚醒力量，鼓勵你不再拖延，將腦海中的精彩想法一步步落地實踐。",
+        action: "將一個卡關很久的計劃拆解成今日即可完成的「5分鐘微小行動」，並立刻執行它。",
         color: "from-amber-955/90 via-stone-955/95 to-stone-900/95 border-amber-500/40",
         glow: "rgba(245, 158, 11, 0.45)",
         keyword: "黎明覺醒 / 實踐行動 / 感官甦醒",
         element: "晨曦極光",
+        type: "twin",
         row: 2,
         bgPos: "100% 50%",
         bgSize: "800% 300%"
@@ -285,10 +344,14 @@
         name: "大天使慈善 (Archangel Charity)",
         title: "仁慈同理與敞開心輪 (Compassion & Open Heart)",
         message: "「無私的愛能化解所有隔閡。我是夏繆爾的雙生光，教導你完全敞開心輪，學習如何真正愛與被愛。」",
+        symbolism: "盛開的粉紅蓮花、心輪擴散的神聖光環",
+        meaning: "大天使慈善是夏繆爾的雙生光，掌管同理心與心輪的完全綻放。此卡提醒你：當我們因受過傷而築起心牆時，我們同時也擋住了愛的流入。學習用仁慈的眼光看待世界，敞開防備，愛將源源不絕地回饋到你生命中。",
+        action: "今日隨機做一件不求回報的善事（如給予讚美、禮讓他人或捐款）。",
         color: "from-stone-900/95 via-amber-955/95 to-stone-900/90 border-amber-500/40",
         glow: "rgba(245, 158, 11, 0.45)",
         keyword: "仁慈同理 / 心輪敞開 / 真摯之愛",
         element: "同理心之光",
+        type: "twin",
         row: 3,
         bgPos: "12.5% 93.5%",
         bgSize: "900% 300%"
@@ -298,10 +361,14 @@
         name: "大天使紫水晶 (Archangel Amethyst)",
         title: "情緒排毒與靈性淨化 (Emotional Detox & Purification)",
         message: "「釋懷過去，讓情緒深層排毒。我是薩德基爾的雙生光，運用紫色火焰與紫水晶帶來深度淨化。」",
+        symbolism: "晶瑩剔透的紫水晶礦石、洗滌心靈的紫色流光",
+        meaning: "紫水晶大天使是薩德基爾的神聖雙生光，專門清理積壓在潛意識中的壓抑情緒、委屈與陰影。這張卡預示著心靈的『大掃除階段』。允許內心的情緒流露出來，不加評判地清洗它們，你將獲得無比輕盈的自由。",
+        action: "喝一杯紫水晶能量水（或溫檸檬水），洗一個放鬆的鹽浴，幫助身體與情緒排毒。",
         color: "from-amber-900/90 via-stone-900/95 to-amber-955/95 border-amber-400/40",
         glow: "rgba(245, 158, 11, 0.45)",
         keyword: "情緒排毒 / 靈性淨化 / 深層釋懷",
         element: "紫水晶光",
+        type: "twin",
         row: 3,
         bgPos: "25% 93.5%",
         bgSize: "900% 300%"
@@ -311,10 +378,14 @@
         name: "大天使克莉絲汀 (Archangel Christine)",
         title: "基督意識與心智啟蒙 (Christ Consciousness & Enlightenment)",
         message: "「保持定見，免受集體負面思潮干擾。我是約菲爾的雙生光，為你的心智注入基督意識的光明。」",
+        symbolism: "金白色的啟蒙光冠、澄澈的心智靈光",
+        meaning: "克莉絲汀大天使是約菲爾的雙生光，代表高等心智與『基督意識（無條件愛與合一的智慧）』。此卡提示你：當集體社會充斥著恐懼、焦慮與對立時，請守護好你的內在清明，不輕易被流言與負面思潮隨波逐流。",
+        action: "遠離社群媒體與負面新聞一小時，靜心專注於當下的呼吸與寧靜。",
         color: "from-stone-900/95 via-amber-950/95 to-stone-900/90 border-amber-500/40",
         glow: "rgba(245, 158, 11, 0.35)",
         keyword: "基督意識 / 心智啟蒙 / 清晰定見",
         element: "金白啟蒙光",
+        type: "twin",
         row: 3,
         bgPos: "37.5% 93.5%",
         bgSize: "900% 300%"
@@ -324,10 +395,14 @@
         name: "大天使恆常 (Archangel Constance)",
         title: "情緒平衡與持之以恆 (Emotional Balance & Perseverance)",
         message: "「在變化莫測的環境中保持根基穩定。我是漢尼爾的雙生光，給予你持續前行的毅力與安定。」",
+        symbolism: "深扎大地根基的磐石、定海神針般的恆常之光",
+        meaning: "大天使恆常是漢尼爾的雙生光，象徵著安定、毅力與持之以恆的力量。成功與成長往往不是靠爆發力，而是靠日復一日的堅持。這張卡給予你沉穩的底氣，鼓勵你在通往目標的路上穩紮穩打、不輕言放棄。",
+        action: "檢視一個你長期進行的目標，為自己今日的小小堅持與進步表達自我讚賞。",
         color: "from-amber-955/90 via-orange-955/95 to-stone-955/90 border-amber-400/45",
         glow: "rgba(249, 115, 22, 0.45)",
         keyword: "情緒平衡 / 毅力持之以恆 / 穩固根基",
         element: "恆常磐石",
+        type: "twin",
         row: 3,
         bgPos: "50% 93.5%",
         bgSize: "900% 300%"
@@ -337,10 +412,14 @@
         name: "大天使豐盛 (Archangel Abundia)",
         title: "無限財富與破除匱乏 (Infinite Wealth & Abundance)",
         message: "「破除匱乏感，敞開接受宇宙的賞賜。我是亞列爾的雙生光，為你流轉無盡的財富與資源之流。」",
+        symbolism: "溢滿金幣與果實的豐裕角 (Cornucopia)、黃金雨",
+        meaning: "大天使豐盛是亞列爾的神聖雙生光，掌管宇宙無窮無盡的資源與財富流動。此卡提醒你：宇宙本質是極度豐盛的，限制你獲得豐盛的唯一阻礙是內心對『我不值得』或『資源不足』的匱乏信念。請安心敞開雙手接收眷顧！",
+        action: "清點你目前擁有的所有財富與擁有的事物，懷著感恩的心說：「感謝宇宙源源不絕的供給！」",
         color: "from-stone-900/95 via-stone-955/95 to-amber-955/90 border-amber-500/40",
         glow: "rgba(245, 158, 11, 0.35)",
         keyword: "無限財富 / 破除匱乏 / 宇宙賞賜",
         element: "金幣豐盛流",
+        type: "twin",
         row: 3,
         bgPos: "62.5% 93.5%",
         bgSize: "900% 300%"
@@ -350,10 +429,14 @@
         name: "大天使舍金納 (Archangel Shekinah)",
         title: "神聖陰性力量與和諧庇護 (Divine Feminine Presence & Haven)",
         message: "「感受至高無上的神聖陰性力量。我是麥達昶的雙生光，為你的靈魂帶來全然的和諧、庇護與歸屬感。」",
+        symbolism: "庇護靈魂的神聖聖殿、溫柔的母性光暈",
+        meaning: "舍金納是大天使麥達昶的神聖雙生光，代表著『神的臨在』與最高層面的神聖陰性庇護。當你感到孤獨、迷惘或無依無靠時，舍金納大天使正為你築起一道安全的靈魂避風港，讓你得到充份的養育與支持。",
+        action: "創建一個屬於你的「心靈聖殿」空間，放上喜歡的植物、水晶與香氛，讓自己在此獲得滋養。",
         color: "from-stone-900/95 via-amber-900/90 to-amber-955/95 border-amber-400/40",
         glow: "rgba(245, 158, 11, 0.45)",
         keyword: "神聖陰性 / 和諧庇護 / 靈魂歸屬",
         element: "舍金納聖光",
+        type: "twin",
         row: 3,
         bgPos: "75% 93.5%",
         bgSize: "900% 300%"
@@ -363,19 +446,20 @@
         name: "大天使帕拉斯·雅典娜 (Archangel Pallas Athena)",
         title: "神聖真理與靈性智慧 (Divine Truth & Spiritual Wisdom)",
         message: "「斬斷一切幻象，擁抱神聖真理。我是拉結爾的雙生光，賦予你靈性作戰的極致智慧與勇氣。」",
+        symbolism: "雅典娜神聖光盾、真理之矛、閃耀的智慧之貓頭鷹",
+        meaning: "雅典娜是大天使拉結爾的神聖雙生光，結合了高超的靈性直覺與戰略智慧。這張卡提示你：面對挑戰時，不要慌張或感情用事，運用理智、靈性策略與真理之盾來捍衛你的權益與立場，勝券早已掌握在你手中。",
+        action: "理性列出當前困境的所有客觀事實與可行策略，選擇最符合道德與長遠智慧的方案執行。",
         color: "from-amber-955/90 via-stone-950/95 to-stone-900/95 border-amber-500/40",
         glow: "rgba(245, 158, 11, 0.45)",
         keyword: "神聖真理 / 斬斷幻象 / 靈性智慧",
         element: "雅典娜光盾",
+        type: "twin",
         row: 3,
         bgPos: "87.5% 93.5%",
         bgSize: "900% 300%"
       }
     ];
 
-    // ==========================================
-    // 3. 牌陣模式定義
-    // ==========================================
     const SPREADS = {
       single: {
         id: "single",
@@ -397,10 +481,10 @@
           { index: 1, title: "當下的心靈現狀", desc: "你此時此刻面臨的核心功課或內在真實想法。" },
           { index: 2, title: "未來的潛能引導", desc: "順應天使建議後，這條路最可能為你敞開的神聖未來。" }
         ],
-        promptGuide: `請以「流動時間軸」的方式串聯解讀，不要拆開單獨背誦牌義：
+        promptGuide: `請以「流動時間軸」的方式串聯解讀：
 - 結合第 1 張（過去）到第 2 張（現在）的轉折，解析求問者經歷的心路歷程。
 - 解析第 2 張（現在）過渡到第 3 張（未來）所需展現的心靈轉化與對策。
-- 最後將三張牌融會串聯成一個完整、充滿希望 of 靈魂進化指引。`
+- 最後將三張牌融會串聯成一個完整、充滿希望的靈魂進化指引。`
       },
       cross: {
         id: "cross",
@@ -414,7 +498,7 @@
           { index: 3, title: "4. 天使對策", desc: "守護天使建議你採取的具體態度或心靈轉變。" },
           { index: 4, title: "5. 神聖結果", desc: "融會貫通天使指引後，事情最美妙和諧的轉折。" }
         ],
-        promptGuide: `請以「十字交叉整合」方式串聯解讀，不要逐張單獨剖析：
+        promptGuide: `請以「十字交叉整合」方式串聯解讀：
 - 以中央的第 1 張（現狀）為核心主軸。
 - 對比第 1 張（現狀）與第 2 張（阻礙）之間的張力，指出阻礙如何轉化為智慧。
 - 將第 3 張（潛意識）的深層渴望與第 4 張（天使對策）串聯，提供如何平衡身心靈的關鍵方案。
@@ -423,19 +507,29 @@
     };
 
     function App() {
-      // 狀態變數
+      // 頁面分頁狀態： 'divination' (占卜) | 'gallery' (牌義圖鑑)
+      const [viewMode, setViewMode] = useState("divination");
+      
+      // 占卜流程狀態
       const [spreadMode, setSpreadMode] = useState("single");
       const [question, setQuestion] = useState("");
       const [step, setStep] = useState("setup"); // 'setup' | 'shuffling' | 'drawing' | 'reading'
       const [deck, setDeck] = useState([...ANGEL_CARDS]);
-      const [drawnCards, setDrawnCards] = useState([]); // 存放已抽卡片資訊
-      const [revealedCards, setRevealedCards] = useState({}); // 紀錄每張卡片是否已被翻開
+      const [drawnCards, setDrawnCards] = useState([]);
+      const [revealedCards, setRevealedCards] = useState({});
       const [isShuffling, setIsShuffling] = useState(false);
       const [selectedCardsCount, setSelectedCardsCount] = useState(0);
       const [toastMessage, setToastMessage] = useState(null);
       const [divinationDate, setDivinationDate] = useState("");
 
-      // 自動獲取當下的真實日期並格式化 (例如: 2026/07/06)
+      // 牌義詳情 Modal 狀態
+      const [selectedModalCard, setSelectedModalCard] = useState(null);
+
+      // 圖鑑搜尋與篩選狀態
+      const [searchQuery, setSearchQuery] = useState("");
+      const [filterType, setFilterType] = useState("all"); // 'all' | 'primary' | 'twin'
+
+      // 自動獲取真實日期 (例如: 2026/09/03)
       useEffect(() => {
         const today = new Date();
         const yyyy = today.getFullYear();
@@ -444,15 +538,11 @@
         setDivinationDate(`${yyyy}/${mm}/${dd}`);
       }, []);
 
-      // Toast 訊息提示
       const showToast = (msg) => {
         setToastMessage(msg);
-        setTimeout(() => {
-          setToastMessage(null);
-        }, 3000);
+        setTimeout(() => setToastMessage(null), 3200);
       };
 
-      // 重置占卜
       const resetReading = () => {
         setDrawnCards([]);
         setRevealedCards({});
@@ -460,14 +550,12 @@
         setStep("setup");
       };
 
-      // 開始占卜 -> 啟動無限洗牌動畫
       const startDivination = () => {
         setIsShuffling(true);
         setStep("shuffling");
         showToast("🔮 大天使能量已接通，請專注默想您的問題，準備好即可隨時「停止洗牌」！");
       };
 
-      // 停止洗牌 -> 計算隨機牌序，轉向選牌階段
       const stopShuffling = () => {
         const shuffled = [...ANGEL_CARDS].sort(() => Math.random() - 0.5);
         setDeck(shuffled);
@@ -476,11 +564,9 @@
         showToast("🌟 牌序已鎖定。22 張天使神諭卡已全數展開，請依靈感選牌。");
       };
 
-      // 點擊選牌堆中的牌
       const handleDrawCardFromDeck = (cardFromDeck, deckIndex) => {
         const requiredCount = SPREADS[spreadMode].cardCount;
         if (selectedCardsCount >= requiredCount) return;
-
         if (drawnCards.some(d => d.deckIndex === deckIndex)) return;
 
         const newDrawn = [
@@ -503,7 +589,6 @@
         }
       };
 
-      // 翻開指定位置的牌
       const flipCard = (positionIndex) => {
         setRevealedCards(prev => ({
           ...prev,
@@ -511,7 +596,6 @@
         }));
       };
 
-      // 翻開所有牌
       const revealAllCards = () => {
         const total = SPREADS[spreadMode].cardCount;
         const newRevealed = {};
@@ -522,26 +606,26 @@
         showToast("✨ 守護天使的訊息與聖繪已全部揭曉。");
       };
 
-      // 動態生成 AI 提示詞語法
+      // 生成 AI 提示詞 (包含深度牌義與象徵)
       const generateAiPromptText = () => {
         const spreadInfo = SPREADS[spreadMode];
         let prompt = `我想透過「天使神諭卡 (Angel Oracle Card)」占卜以下問題：\n\n`;
         prompt += `【問題】${question.trim() || "我想尋求此刻大天使與守護天使給予我的核心指引、大地能量調頻與靈魂成長建議。"}\n`;
-        prompt += `【占卜日期】${divinationDate || "2026/07/06"}\n\n`;
+        prompt += `【占卜日期】${divinationDate}\n\n`;
         prompt += `【牌陣】${spreadInfo.name} (${spreadInfo.cardCount}張牌)\n`;
         
         drawnCards.forEach((card, idx) => {
           const posName = spreadInfo.positions[idx].title;
           const isCardRevealed = revealedCards[idx];
           const nameStr = isCardRevealed ? card.name : `(已抽出卡牌 #${idx + 1})`;
-          const titleStr = isCardRevealed ? card.title : "";
-          const keywordStr = isCardRevealed ? card.keyword : "";
-          const messageStr = isCardRevealed ? card.message : "";
-
-          prompt += `${idx + 1}. 位置: ${posName} -> ${nameStr} ${titleStr ? `[${titleStr}]` : ''}\n`;
+          
+          prompt += `\n${idx + 1}. 位置: ${posName} -> ${nameStr}\n`;
           if (isCardRevealed) {
-            prompt += `   - 核心能量：${keywordStr}\n`;
-            prompt += `   - 天使細語：${messageStr}\n`;
+            prompt += `   - 核心關鍵字：${card.keyword}\n`;
+            prompt += `   - 天使細語：${card.message}\n`;
+            prompt += `   - 牌面象徵：${card.symbolism}\n`;
+            prompt += `   - 深度牌義寓意：${card.meaning}\n`;
+            prompt += `   - 日常實踐建議：${card.action}\n`;
           }
         });
 
@@ -549,13 +633,12 @@
         prompt += `1. 請以「組合與能量流動」方式解讀，不要逐張給出死板的牌義：\n`;
         prompt += `   - ${spreadInfo.promptGuide}\n`;
         prompt += `2. 用充滿愛與支持感的溫柔語氣，直擊我問題背後的身心靈與潛意識層面，協助我穩固扎根，融化恐懼與焦慮。\n`;
-        prompt += `3. 給予 2-3 個在大地生活日常中切實可行、微小而溫暖的「光之實踐步驟 (例如大地呼吸法、空間斷捨離、或者大自然接地氣實踐)」。\n`;
+        prompt += `3. 給予 2-3 個在大地生活日常中切實可行、微小而溫暖的「光之實踐步驟」。\n`;
         prompt += `4. 最後以一句如同大天使溫柔輕撫求問者羽翼般、充滿力量與安全感的短句祝福作結。`;
 
         return prompt;
       };
 
-      // 生成社群分享短文文字
       const generateShareText = () => {
         const spreadInfo = SPREADS[spreadMode];
         let shareText = `👼✨【天使神諭卡 · 心靈啟示占卜】✨👼\n\n`;
@@ -568,21 +651,18 @@
           const posName = spreadInfo.positions[idx].title;
           const isCardRevealed = revealedCards[idx];
           const nameStr = isCardRevealed ? card.name.split(' (')[0] : `[天使神諭卡 #${idx + 1}]`;
-          const titleStr = isCardRevealed ? card.title.split(' (')[0] : "";
           
-          shareText += `📍 ${posName} ── ${nameStr} (${titleStr})\n`;
+          shareText += `📍 ${posName} ── ${nameStr}\n`;
           if (isCardRevealed) {
             shareText += `💬 天使細語：${card.message.substring(0, 42)}...\n\n`;
           }
         });
 
         shareText += `------------------------------------\n`;
-        shareText += `💖 願這份來自大天使的溫暖與守護羽翼，也常伴你的左右！\n`;
-        shareText += `👉 快來為你的疑惑尋求神聖指引吧！✨`;
+        shareText += `💖 願來自大天使的溫暖與守護羽翼常伴左右！✨`;
         return shareText;
       };
 
-      // 一鍵複製 AI 提示詞
       const handleCopyPrompt = () => {
         const textToCopy = generateAiPromptText();
         const textarea = document.createElement("textarea");
@@ -593,14 +673,13 @@
         textarea.select();
         try {
           document.execCommand('copy');
-          showToast("📋 專屬 AI 占卜提示詞已複製！貼到您常用的 AI 即可開始解讀 ✨");
+          showToast("📋 專屬 AI 占卜提示詞（含完整牌義）已複製！貼至 AI 即可獲得深度解讀 ✨");
         } catch (err) {
-          showToast("❌ 複製失敗，請手動複製右方文本框。");
+          showToast("❌ 複製失敗。");
         }
         document.body.removeChild(textarea);
       };
 
-      // 一鍵複製社群分享內容
       const handleCopyShareText = () => {
         const shareText = generateShareText();
         const textarea = document.createElement("textarea");
@@ -611,28 +690,31 @@
         textarea.select();
         try {
           document.execCommand('copy');
-          showToast("✨ 溫暖的占卜社群貼文已複製！您可以直接貼到 Threads、LINE、FB 傳播祝福 💖");
+          showToast("✨ 占卜成果貼文已複製！可貼至社交平台傳播祝福 💖");
         } catch (err) {
           showToast("❌ 複製失敗。");
         }
         document.body.removeChild(textarea);
       };
 
-      // 分享至 LINE
-      const shareToLine = () => {
-        const text = encodeURIComponent(generateShareText());
-        window.open(`https://line.me/R/msg/text/?${text}`, '_blank');
-      };
-
-      // 分享至 Facebook
-      const shareToFacebook = () => {
-        const currentUrl = encodeURIComponent(window.location.href);
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`, '_blank');
-        showToast("📋 已開啟 Facebook 分享！建議同時複製社群貼文內容貼上喔 👼");
-      };
+      const filteredGalleryCards = ANGEL_CARDS.filter(card => {
+        const matchesQuery = card.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                             card.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                             card.keyword.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                             card.meaning.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesType = filterType === 'all' || card.type === filterType;
+        return matchesQuery && matchesType;
+      });
 
       return (
-        <div className="pb-24 text-[12pt]">
+        <div className="pb-24 text-[12pt] relative min-h-screen flex flex-col justify-between">
+          {/* Toast 提示條 */}
+          {toastMessage && (
+            <div className="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-stone-900/90 text-amber-200 px-6 py-3 rounded-full shadow-2xl border border-amber-400/40 text-[12pt] font-medium backdrop-blur-md animate-bounce">
+              {toastMessage}
+            </div>
+          )}
+
           {/* 背景裝飾 */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30 z-0">
             <div className="absolute top-10 left-10 w-2 h-2 bg-amber-400 rounded-full animate-star"></div>
@@ -648,491 +730,579 @@
             </div>
           </div>
 
-          {/* 頂部導覽列 */}
-          <header className="border-b border-amber-200/60 backdrop-blur-md bg-white/75 sticky top-0 z-50 px-4 py-4 shadow-sm">
+          {}
+          <header className="border-b border-amber-200/60 backdrop-blur-md bg-white/80 sticky top-0 z-40 px-4 py-3.5 shadow-sm">
             <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
               <div className="flex items-center gap-3">
                 <div className="p-2.5 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full shadow-md shadow-amber-500/20">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                   </svg>
                 </div>
                 <div>
-                  <h1 className="text-[18pt] font-bold tracking-widest bg-gradient-to-r from-amber-700 via-amber-800 to-amber-600 bg-clip-text text-transparent">
+                  <h1 className="text-[17pt] font-bold tracking-widest bg-gradient-to-r from-amber-700 via-amber-800 to-amber-600 bg-clip-text text-transparent">
                     ANGEL ORACLE
                   </h1>
-                  <p className="text-[12pt] text-amber-800 font-bold tracking-wider uppercase">大地系 · 天使神諭占卜</p>
+                  <p className="text-[11pt] text-amber-850 font-bold tracking-wider uppercase">大地系 · 天使神諭占卜與牌義圖鑑</p>
                 </div>
               </div>
               
-              <div className="flex items-center gap-4">
-                <span className="text-[12pt] text-amber-900 bg-amber-100/90 px-4 py-2 rounded-full border border-amber-200 font-mono flex items-center gap-1.5 shadow-sm font-semibold">
-                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-ping"></span>
-                  📅 占卜能量場日期：{divinationDate || "取得中..."}
+              <div className="flex items-center gap-3">
+                {/* 頁面切換按鈕 */}
+                <div className="bg-amber-100/80 p-1 rounded-full border border-amber-200 flex gap-1 shadow-inner">
+                  <button
+                    onClick={() => setViewMode("divination")}
+                    className={`px-4 py-1.5 rounded-full text-[11pt] font-bold transition-all ${
+                      viewMode === "divination"
+                        ? "bg-amber-600 text-white shadow-md"
+                        : "text-amber-900 hover:text-amber-950"
+                    }`}
+                  >
+                    🔮 靈魂占卜
+                  </button>
+                  <button
+                    onClick={() => setViewMode("gallery")}
+                    className={`px-4 py-1.5 rounded-full text-[11pt] font-bold transition-all ${
+                      viewMode === "gallery"
+                        ? "bg-amber-600 text-white shadow-md"
+                        : "text-amber-900 hover:text-amber-950"
+                    }`}
+                  >
+                    📖 22 大天使牌義圖鑑
+                  </button>
+                </div>
+
+                <span className="hidden md:flex text-[11pt] text-amber-900 bg-amber-50 px-3.5 py-1.5 rounded-full border border-amber-200 font-mono items-center gap-1.5 shadow-sm font-semibold">
+                  📅 {divinationDate || "能量場同步中"}
                 </span>
               </div>
             </div>
           </header>
 
-          {/* 主體內容 */}
-          <main className="max-w-6xl mx-auto px-4 mt-8 relative z-10">
-            {step === "setup" && (
-              <div className="text-center max-w-2xl mx-auto my-6 animate-float">
-                <h2 className="text-[22pt] font-light text-amber-900 tracking-widest mb-3">
-                  在晨曦殿堂聆聽守護天使
-                </h2>
-                <div className="h-[2px] w-16 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto mb-4"></div>
-                <p className="text-stone-600 text-[13pt] font-light leading-relaxed mb-8">
-                  深呼吸，回到此時此刻的身體，感受大地的溫柔與明亮力量。
-                  翻開天使卡後，系統將為您生成專屬的 **AI 解讀語法**，方便貼入常用的 AI 中獲取最契合的靈魂指引。
-                </p>
-              </div>
-            )}
-
-            {/* 占卜設定面板 */}
-            {step === "setup" && (
-              <div className="bg-white/90 backdrop-blur-md border border-amber-200/85 rounded-2xl p-6 md:p-8 shadow-xl shadow-amber-900/5 max-w-4xl mx-auto">
-                <div className="mb-6">
-                  <label className="block text-amber-950 text-[13pt] font-bold mb-3 tracking-wide">
-                    ✨ 第一步：設定你的占卜問題（請在心中默念或輸入下方）
-                  </label>
-                  <textarea
-                    placeholder="例如：『我要買房還是買股票，可以存到錢嗎？』或『我近期工作轉折與能量調整的最佳指引是什麼？』 (留空則預設為每日隨機天使祝福)"
-                    value={question}
-                    onChange={(e) => setQuestion(e.target.value)}
-                    className="w-full h-28 px-4 py-3 bg-stone-50 border border-amber-200/80 rounded-xl text-stone-800 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/50 transition-all text-[12pt] leading-relaxed"
-                  />
-                </div>
-
-                <div className="mb-8">
-                  <label className="block text-amber-950 text-[13pt] font-bold mb-4 tracking-wide">
-                    🌌 第二步：選擇神聖牌陣模式
-                  </label>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {Object.values(SPREADS).map((spread) => (
-                      <button
-                        key={spread.id}
-                        onClick={() => setSpreadMode(spread.id)}
-                        className={`text-left p-6 rounded-xl border transition-all duration-300 flex flex-col justify-between ${
-                          spreadMode === spread.id
-                            ? 'bg-gradient-to-b from-amber-50 to-amber-100/30 border-amber-500 shadow-md shadow-amber-500/5 ring-1 ring-amber-400/50'
-                            : 'bg-stone-50/50 border-stone-200 hover:border-amber-300 hover:bg-white text-stone-700'
-                        }`}
-                      >
-                        <div>
-                          <div className="flex justify-between items-center mb-3">
-                            <span className={`text-[13pt] font-bold ${spreadMode === spread.id ? 'text-amber-900' : 'text-stone-800'}`}>
-                              {spread.name}
-                            </span>
-                            <span className="text-[11pt] px-2.5 py-0.5 rounded-full bg-amber-100/80 border border-amber-200/60 text-amber-900 font-semibold">
-                              {spread.cardCount} 張牌
-                            </span>
-                          </div>
-                          <p className="text-[12pt] text-stone-550 leading-relaxed font-light">
-                            {spread.desc}
-                          </p>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex justify-center">
-                  <button
-                    onClick={() => startDivination()}
-                    className="px-12 py-4.5 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-white font-bold rounded-full shadow-lg shadow-amber-600/20 hover:shadow-amber-500/40 hover:scale-105 active:scale-95 transition-all tracking-widest text-[13pt]"
-                  >
-                    開始天使能量洗牌 🔮
-                  </button>
-                </div>
-              </div>
-            )}
-
-            {/* 洗牌動畫 */}
-            {step === "shuffling" && (
-              <div className="flex flex-col items-center justify-center py-20 min-h-[440px]">
-                <div className="relative w-80 h-64 mb-10 flex items-center justify-center">
-                  <div className="absolute inset-0 bg-amber-400/10 rounded-full filter blur-xl animate-pulse-glow"></div>
-                  
-                  <div className="absolute w-36 h-52 bg-gradient-to-br from-white to-amber-50/90 border-2 border-amber-300 rounded-2xl shadow-md shuffle-card-l flex items-center justify-center">
-                    <div className="w-full h-full rounded-2xl bg-amber-50/20 m-1 border border-amber-100 flex items-center justify-center">
-                      <span className="text-amber-600/40 text-xs font-mono font-bold">ANGEL</span>
-                    </div>
-                  </div>
-                  
-                  <div className="absolute w-36 h-52 bg-gradient-to-br from-white to-amber-50/90 border-2 border-amber-400 rounded-2xl shadow-xl shuffle-card-c flex items-center justify-center z-10">
-                    <svg viewBox="0 0 100 100" className="w-16 h-16 text-amber-500 animate-spin" style={{ animationDuration: '3.5s' }}>
-                      <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeDasharray="5,5" />
-                      <polygon points="50,25 55,38 68,38 58,47 62,60 50,52 38,60 42,47 32,38 45,38" fill="currentColor" />
-                    </svg>
-                  </div>
-
-                  <div className="absolute w-36 h-52 bg-gradient-to-br from-white to-amber-50/90 border-2 border-amber-300 rounded-2xl shadow-md shuffle-card-r flex items-center justify-center">
-                    <div className="w-full h-full rounded-2xl bg-amber-50/20 m-1 border border-amber-100 flex items-center justify-center">
-                      <span className="text-amber-600/40 text-xs font-mono font-bold">ORACLE</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="text-center max-w-xl mb-6">
-                  <h3 className="text-[16pt] font-bold text-amber-900 tracking-widest animate-pulse">
-                    大天使正在為 22 張神諭牌卡融入大地調頻中...
-                  </h3>
-                  <p className="text-[12pt] text-stone-550 mt-2 font-light">
-                    請在心中靜靜默念您的求問，並在能量頻率最高、直覺最契合的瞬間點擊下方按鈕以「鎖定並停止洗牌」。
+          {}
+          {viewMode === "divination" ? (
+            <main className="max-w-6xl mx-auto px-4 mt-8 relative z-10 flex-grow">
+              {step === "setup" && (
+                <div className="text-center max-w-2xl mx-auto my-6 animate-float">
+                  <h2 className="text-[22pt] font-light text-amber-950 tracking-widest mb-3">
+                    在晨曦殿堂聆聽守護天使
+                  </h2>
+                  <div className="h-[2px] w-16 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto mb-4"></div>
+                  <p className="text-stone-600 text-[12.5pt] font-light leading-relaxed mb-8">
+                    深呼吸，回到此時此刻的身體，感受大地的溫柔與明亮力量。
+                    選取牌陣並翻開天使卡後，您可以隨時點擊卡牌檢視 **完整牌面寓意與實踐指引**。
                   </p>
                 </div>
+              )}
 
-                <button
-                  onClick={() => stopShuffling()}
-                  className="px-12 py-5 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-white font-extrabold rounded-full text-[13pt] tracking-widest shadow-lg shadow-amber-600/30 hover:scale-105 active:scale-95 transition-all animate-bounce"
-                >
-                  🛑 停止洗牌，開始抽牌 🔮
-                </button>
-              </div>
-            )}
+              {/* 占卜設定階段 */}
+              {step === "setup" && (
+                <div className="bg-white/90 backdrop-blur-md border border-amber-200/85 rounded-2xl p-6 md:p-8 shadow-xl shadow-amber-900/5 max-w-4xl mx-auto">
+                  <div className="mb-6">
+                    <label className="block text-amber-950 text-[13pt] font-bold mb-3 tracking-wide">
+                      ✨ 第一步：設定你的占卜問題（請在心中默念或輸入下方）
+                    </label>
+                    <textarea
+                      placeholder="例如：『我近期工作轉折與能量調整的最佳指引是什麼？』或『如何改善我當前的焦慮與人際關係？』 (留空則預設為每日隨機天使祝福)"
+                      value={question}
+                      onChange={(e) => setQuestion(e.target.value)}
+                      className="w-full h-28 px-4 py-3 bg-stone-50 border border-amber-200/80 rounded-xl text-stone-800 placeholder-stone-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/50 transition-all text-[12pt] leading-relaxed"
+                    />
+                  </div>
 
-            {/* 選牌畫面 */}
-            {step === "drawing" && (
-              <div className="animate-fade-in relative">
-                <div className="mb-6 text-center">
-                  <span className="text-[12pt] font-semibold uppercase tracking-widest text-amber-900 px-4 py-2 rounded-full bg-amber-100 border border-amber-200">
-                    問卜意圖：{question.trim() || "每日隨機天使祝福指引"}
-                  </span>
-                  <h3 className="text-[18pt] font-light text-amber-950 tracking-widest mt-5">
-                    選取您的天使卡牌 ({selectedCardsCount} / {SPREADS[spreadMode].cardCount})
-                  </h3>
-                  <p className="text-[12pt] text-stone-550 mt-1.5">
-                    大天使已將 22 張神諭卡全數鋪開在一個畫面中。請依直覺直接點擊挑選您的卡片。
-                  </p>
-                </div>
-
-                <div className="border border-amber-200/50 bg-white/45 rounded-3xl p-6 shadow-inner max-w-5xl mx-auto">
-                  <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-11 gap-3.5 justify-center py-4">
-                    {deck.map((card, idx) => {
-                      const isDrawn = drawnCards.some(d => d.deckIndex === idx);
-                      return (
+                  <div className="mb-8">
+                    <label className="block text-amber-950 text-[13pt] font-bold mb-4 tracking-wide">
+                      🌌 第二步：選擇神聖牌陣模式
+                    </label>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      {Object.values(SPREADS).map((spread) => (
                         <button
-                          key={idx}
-                          onClick={() => handleDrawCardFromDeck(card, idx)}
-                          disabled={isDrawn || selectedCardsCount >= SPREADS[spreadMode].cardCount}
-                          className={`group relative w-full aspect-[2/3] rounded-xl border border-amber-300 transition-all duration-300 shadow-sm overflow-hidden flex flex-col justify-between ${
-                            isDrawn 
-                              ? 'opacity-20 scale-95 pointer-events-none' 
-                              : 'hover:-translate-y-2 hover:border-amber-500 hover:shadow-md'
+                          key={spread.id}
+                          onClick={() => setSpreadMode(spread.id)}
+                          className={`text-left p-6 rounded-xl border transition-all duration-300 flex flex-col justify-between ${
+                            spreadMode === spread.id
+                              ? 'bg-gradient-to-b from-amber-50 to-amber-100/40 border-amber-500 shadow-md ring-1 ring-amber-400/50'
+                              : 'bg-stone-50/50 border-stone-200 hover:border-amber-300 hover:bg-white text-stone-700'
                           }`}
-                          style={{
-                            background: 'linear-gradient(135deg, #fdfbf7 0%, #f5f0e6 100%)'
-                          }}
                         >
-                          <div className="absolute inset-1.5 border border-amber-200/80 rounded-lg flex flex-col items-center justify-between p-1.5 h-[calc(100%-12px)]">
-                            <div className="w-1 h-1 rounded-full bg-amber-400"></div>
-                            <div className="w-8 h-8 text-amber-600/55 group-hover:text-amber-500 transition-colors flex items-center justify-center">
-                              <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full">
-                                <path d="M50 15C35 15 25 30 25 45C25 55 35 65 50 85C65 65 75 55 75 45C75 30 65 15 50 15ZM50 65C38 65 35 50 35 45C35 38 42 32 50 32C58 32 65 38 65 45C65 50 62 65 50 65Z" opacity="0.6"/>
-                              </svg>
+                          <div>
+                            <div className="flex justify-between items-center mb-3">
+                              <span className={`text-[13pt] font-bold ${spreadMode === spread.id ? 'text-amber-900' : 'text-stone-800'}`}>
+                                {spread.name}
+                              </span>
+                              <span className="text-[11pt] px-2.5 py-0.5 rounded-full bg-amber-100/80 border border-amber-200/60 text-amber-900 font-semibold">
+                                {spread.cardCount} 張牌
+                              </span>
                             </div>
-                            <div className="text-stone-500 font-mono text-[9pt] font-bold">#{idx + 1}</div>
-                            <div className="w-1 h-1 rounded-full bg-amber-400"></div>
+                            <p className="text-[11.5pt] text-stone-600 leading-relaxed font-light">
+                              {spread.desc}
+                            </p>
                           </div>
                         </button>
-                      );
-                    })}
-                  </div>
-
-                  <div className="text-center text-[12pt] text-amber-850 font-bold flex items-center justify-center gap-1.5 mt-4">
-                    <span>🌾 22 張大地天使卡牌已全數鋪展，您可以直接在上方進行挑選 🌾</span>
-                  </div>
-                </div>
-
-                {drawnCards.length > 0 && (
-                  <div className="mt-8 bg-white/70 border border-amber-200 p-4 rounded-xl max-w-lg mx-auto shadow-sm">
-                    <p className="text-[12pt] text-amber-900 font-semibold mb-2 text-center font-mono">
-                      已連結大地天使卡牌能量：
-                    </p>
-                    <div className="flex justify-center gap-3">
-                      {drawnCards.map((card, i) => (
-                        <div key={i} className="px-3.5 py-1.5 bg-amber-50 border border-amber-200 rounded text-[12pt] text-amber-900 font-bold animate-pulse">
-                          神諭卡 #{i + 1}
-                        </div>
                       ))}
                     </div>
                   </div>
-                )}
-              </div>
-            )}
 
-            {/* 占卜解讀與翻牌畫面 */}
-            {step === "reading" && (
-              <div className="space-y-12 animate-fade-in">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white/95 backdrop-blur border border-amber-200/80 p-6 rounded-2xl shadow-md">
-                  <div className="text-center md:text-left">
-                    <span className="text-[12pt] uppercase tracking-widest font-bold text-amber-900 bg-amber-100 px-3 py-1.5 rounded-full border border-amber-200">
-                      占卜意圖 (Divination Intent)
+                  <div className="flex justify-center">
+                    <button
+                      onClick={() => startDivination()}
+                      className="px-12 py-4 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-white font-bold rounded-full shadow-lg shadow-amber-600/20 hover:shadow-amber-500/40 hover:scale-105 active:scale-95 transition-all tracking-widest text-[13pt]"
+                    >
+                      開始天使能量洗牌 🔮
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {}
+              {/* 洗牌階段 */}
+              {step === "shuffling" && (
+                <div className="flex flex-col items-center justify-center py-20 min-h-[440px]">
+                  <div className="relative w-80 h-64 mb-10 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-amber-400/10 rounded-full filter blur-xl animate-pulse-glow"></div>
+                    
+                    <div className="absolute w-36 h-52 bg-gradient-to-br from-white to-amber-50/90 border-2 border-amber-300 rounded-2xl shadow-md shuffle-card-l flex items-center justify-center">
+                      <span className="text-amber-600/40 text-xs font-mono font-bold">ANGEL</span>
+                    </div>
+                    
+                    <div className="absolute w-36 h-52 bg-gradient-to-br from-white to-amber-50/90 border-2 border-amber-400 rounded-2xl shadow-xl shuffle-card-c flex items-center justify-center z-10">
+                      <svg viewBox="0 0 100 100" className="w-16 h-16 text-amber-500 animate-spin" style={{ animationDuration: '3.5s' }}>
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeDasharray="5,5" />
+                        <polygon points="50,25 55,38 68,38 58,47 62,60 50,52 38,60 42,47 32,38 45,38" fill="currentColor" />
+                      </svg>
+                    </div>
+
+                    <div className="absolute w-36 h-52 bg-gradient-to-br from-white to-amber-50/90 border-2 border-amber-300 rounded-2xl shadow-md shuffle-card-r flex items-center justify-center">
+                      <span className="text-amber-600/40 text-xs font-mono font-bold">ORACLE</span>
+                    </div>
+                  </div>
+                  
+                  <div className="text-center max-w-xl mb-6">
+                    <h3 className="text-[16pt] font-bold text-amber-900 tracking-widest animate-pulse">
+                      大天使正在為 22 張神諭牌卡融入大地調頻中...
+                    </h3>
+                    <p className="text-[12pt] text-stone-550 mt-2 font-light">
+                      請在心中靜靜默念您的求問，並在直覺最契合的瞬間點擊「停止洗牌」。
+                    </p>
+                  </div>
+
+                  <button
+                    onClick={() => stopShuffling()}
+                    className="px-12 py-4 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-white font-extrabold rounded-full text-[13pt] tracking-widest shadow-lg shadow-amber-600/30 hover:scale-105 active:scale-95 transition-all animate-bounce"
+                  >
+                    🛑 停止洗牌，開始抽牌 🔮
+                  </button>
+                </div>
+              )}
+
+              {/* 選牌階段 */}
+              {step === "drawing" && (
+                <div className="animate-fade-in relative">
+                  <div className="mb-6 text-center">
+                    <span className="text-[12pt] font-semibold uppercase tracking-widest text-amber-900 px-4 py-2 rounded-full bg-amber-100 border border-amber-200">
+                      問卜意圖：{question.trim() || "每日隨機天使祝福指引"}
                     </span>
-                    <p className="text-[14pt] font-semibold text-stone-850 mt-3 max-w-xl leading-relaxed">
-                      「{question.trim() || "我想獲得今日的天使指引與心靈祝福"}」
-                    </p>
-                  </div>
-                  <div className="flex gap-2.5">
-                    <button
-                      onClick={revealAllCards}
-                      className="px-5 py-2.5 text-[12pt] bg-amber-50 border border-amber-300 text-amber-900 hover:bg-amber-100 rounded-full font-bold transition-all shadow-sm"
-                    >
-                      👐 一鍵揭曉所有牌面
-                    </button>
-                    <button
-                      onClick={resetReading}
-                      className="px-5 py-2.5 text-[12pt] bg-stone-100 border border-stone-200 text-stone-600 hover:bg-stone-200/60 rounded-full font-bold transition-all shadow-sm"
-                    >
-                      🔄 重新占卜
-                    </button>
-                  </div>
-                </div>
-
-                <div className="flex flex-col items-center justify-center">
-                  <div className="text-center mb-8">
-                    <h4 className="text-[16pt] font-bold text-amber-900 tracking-wider">
-                      神聖牌陣：{SPREADS[spreadMode].name}
-                    </h4>
-                    <p className="text-[13pt] text-stone-500 mt-1.5 max-w-md mx-auto leading-relaxed">
-                      {SPREADS[spreadMode].desc}
+                    <h3 className="text-[18pt] font-light text-amber-950 tracking-widest mt-5">
+                      選取您的天使卡牌 ({selectedCardsCount} / {SPREADS[spreadMode].cardCount})
+                    </h3>
+                    <p className="text-[12pt] text-stone-550 mt-1.5">
+                      22 張天使卡已全數展開。請憑直覺直接點擊挑選。
                     </p>
                   </div>
 
-                  <div className={`grid gap-10 justify-center w-full max-w-6xl px-4 ${
-                    spreadMode === 'single' ? 'grid-cols-1 max-w-sm' : 
-                    spreadMode === 'three' ? 'grid-cols-1 md:grid-cols-3' : 
-                    'grid-cols-1 md:grid-cols-5'
-                  }`}>
-                    {SPREADS[spreadMode].positions.map((pos, idx) => {
-                      const card = drawnCards.find(d => d.positionIndex === idx);
-                      const isRevealed = revealedCards[idx];
-
-                      return (
-                        <div key={idx} className="flex flex-col items-center animate-fade-in">
-                          <div className="mb-4 text-center">
-                            <span className="text-[12pt] font-bold text-amber-850 bg-amber-50/50 px-2 py-0.5 rounded-md">
-                              {pos.title}
-                            </span>
-                            <p className="text-[12pt] text-stone-550 max-w-[180px] mx-auto mt-1.5 leading-relaxed font-light">
-                              {pos.desc}
-                            </p>
-                          </div>
-
-                          {card ? (
-                            <div 
-                              onClick={() => flipCard(idx)}
-                              className="w-56 h-80 md:w-52 md:h-76 cursor-pointer perspective-1000 group relative"
-                            >
-                              <div className={`w-full h-full duration-700 transform-style-3d transition-transform ${
-                                isRevealed ? 'rotate-y-180' : ''
-                              }`}>
-                                <div className="absolute inset-0 w-full h-full rounded-2xl border-2 border-amber-300 p-2 backface-hidden shadow-md flex flex-col justify-between"
-                                     style={{ background: 'linear-gradient(135deg, #fdfbf7 0%, #f5f0e6 100%)' }}>
-                                  <div className="absolute inset-2 border border-amber-200 rounded-xl flex flex-col items-center justify-between p-4">
-                                    <span className="text-[12pt] text-amber-700/60 font-mono font-bold">ANGEL ORACLE</span>
-                                    <div className="w-20 h-20 text-amber-500/60 group-hover:text-amber-500 transition-all animate-wing">
-                                      <svg viewBox="0 0 100 100" fill="currentColor">
-                                        <path d="M50 15C42 12 30 20 25 35C20 48 26 65 38 70C42 71 47 62 50 58C53 62 58 71 62 70C74 65 80 48 75 35C70 20 58 12 50 15Z" opacity="0.3"/>
-                                        <path d="M50 20C46 22 38 25 34 32C30 40 33 50 39 52C42 53 47 48 50 45C53 48 58 53 61 52C67 50 70 40 66 32C62 25 54 22 50 20Z" />
-                                      </svg>
-                                    </div>
-                                    <span className="text-[12pt] text-amber-600/60 font-mono font-bold animate-pulse">TOUCH CARD</span>
-                                  </div>
-                                </div>
-
-                                <div className={`absolute inset-0 w-full h-full rounded-2xl border-2 p-2 backface-hidden rotate-y-180 shadow-lg flex flex-col justify-between bg-gradient-to-br ${card.color}`}
-                                     style={{ 
-                                       boxShadow: isRevealed ? `0 10px 28px -4px ${card.glow}` : 'none'
-                                     }}>
-                                  <div 
-                                    className="absolute inset-0 rounded-2xl opacity-85 z-0"
-                                    style={{
-                                      backgroundImage: 'url("Gemini_Generated_Image_mx2zadmx2zadmx2z.png")',
-                                      backgroundPosition: card.bgPos,
-                                      backgroundSize: card.bgSize,
-                                      backgroundRepeat: 'no-repeat'
-                                    }}
-                                  />
-                                  <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-900/10 to-stone-950/85 z-5 rounded-2xl" />
-
-                                  <div className="absolute inset-2 border border-amber-500/25 rounded-xl flex flex-col justify-between p-3.5 overflow-hidden z-10">
-                                    <div className="flex justify-between items-center text-[12pt] text-amber-200/90 tracking-wider font-mono font-semibold">
-                                      <span>{card.element}</span>
-                                      <span>#{(card.id < 10 ? "0" : "") + card.id}</span>
-                                    </div>
-
-                                    <div className="my-auto text-center py-2 flex flex-col items-center">
-                                      <h5 className="text-[13pt] font-extrabold text-white tracking-widest break-words leading-snug drop-shadow-[0_2.5px_4px_rgba(0,0,0,0.95)]">
-                                        {card.name.split(' (')[0]}
-                                      </h5>
-                                      <span className="text-[12pt] text-amber-200 font-medium tracking-wide mt-1.5 uppercase drop-shadow-[0_1.5px_3px_rgba(0,0,0,0.95)]">
-                                        {card.title.split(' (')[0]}
-                                      </span>
-                                    </div>
-
-                                    <div className="mt-auto border-t border-white/20 pt-2 text-center">
-                                      <p className="text-[12pt] text-amber-300 font-bold mb-1 truncate drop-shadow-[0_1.5px_3px_rgba(0,0,0,0.95)]">
-                                        {card.keyword}
-                                      </p>
-                                      <p className="text-[12pt] text-stone-100 leading-relaxed line-clamp-3 overflow-hidden drop-shadow-[0_1.5px_3px_rgba(0,0,0,0.95)] font-normal font-light">
-                                        {card.message.replace(/「|」/g, '')}
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
+                  <div className="border border-amber-200/50 bg-white/45 rounded-3xl p-6 shadow-inner max-w-5xl mx-auto">
+                    <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-11 gap-3.5 justify-center py-4">
+                      {deck.map((card, idx) => {
+                        const isDrawn = drawnCards.some(d => d.deckIndex === idx);
+                        return (
+                          <button
+                            key={idx}
+                            onClick={() => handleDrawCardFromDeck(card, idx)}
+                            disabled={isDrawn || selectedCardsCount >= SPREADS[spreadMode].cardCount}
+                            className={`group relative w-full aspect-[2/3] rounded-xl border border-amber-300 transition-all duration-300 shadow-sm overflow-hidden flex flex-col justify-between ${
+                              isDrawn 
+                                ? 'opacity-20 scale-95 pointer-events-none' 
+                                : 'hover:-translate-y-2 hover:border-amber-500 hover:shadow-md'
+                            }`}
+                            style={{
+                              background: 'linear-gradient(135deg, #fdfbf7 0%, #f5f0e6 100%)'
+                            }}
+                          >
+                            <div className="absolute inset-1.5 border border-amber-200/80 rounded-lg flex flex-col items-center justify-between p-1.5 h-[calc(100%-12px)]">
+                              <div className="w-1 h-1 rounded-full bg-amber-400"></div>
+                              <div className="w-8 h-8 text-amber-600/55 group-hover:text-amber-500 transition-colors flex items-center justify-center">
+                                <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full">
+                                  <path d="M50 15C35 15 25 30 25 45C25 55 35 65 50 85C65 65 75 55 75 45C75 30 65 15 50 15ZM50 65C38 65 35 50 35 45C35 38 42 32 50 32C58 32 65 38 65 45C65 50 62 65 50 65Z" opacity="0.6"/>
+                                </svg>
                               </div>
+                              <div className="text-stone-500 font-mono text-[9pt] font-bold">#{idx + 1}</div>
+                              <div className="w-1 h-1 rounded-full bg-amber-400"></div>
                             </div>
-                          ) : (
-                            <div className="w-56 h-80 md:w-52 md:h-76 border-2 border-dashed border-amber-300 rounded-2xl flex items-center justify-center text-stone-400 bg-white/40">
-                              <span className="text-[12pt] font-medium">未選擇</span>
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
+              )}
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-12 items-stretch">
-                  <div className="lg:col-span-5 bg-white border border-amber-200/80 rounded-2xl p-6 shadow-md flex flex-col justify-between">
-                    <div>
-                      <h3 className="text-[14pt] font-bold text-amber-900 tracking-wider mb-4 border-b border-amber-100 pb-3 flex items-center gap-2">
-                        🛡️ 天使諭旨與聖繪對照
-                      </h3>
-                      
-                      <div className="space-y-4">
-                        {drawnCards.map((card, idx) => {
-                          const posInfo = SPREADS[spreadMode].positions[idx];
-                          const isRevealed = revealedCards[idx];
+              {}
+              {/* 占卜解讀階段 */}
+              {step === "reading" && (
+                <div className="space-y-10 animate-fade-in">
+                  <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white/95 backdrop-blur border border-amber-200/80 p-6 rounded-2xl shadow-md">
+                    <div className="text-center md:text-left">
+                      <span className="text-[11pt] uppercase tracking-widest font-bold text-amber-900 bg-amber-100 px-3 py-1 rounded-full border border-amber-200">
+                        占卜意圖 (Divination Intent)
+                      </span>
+                      <p className="text-[13.5pt] font-semibold text-stone-850 mt-2 max-w-xl leading-relaxed">
+                        「{question.trim() || "我想獲得今日的天使指引與心靈祝福"}」
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2.5 justify-center">
+                      <button
+                        onClick={revealAllCards}
+                        className="px-5 py-2 text-[11.5pt] bg-amber-50 border border-amber-300 text-amber-900 hover:bg-amber-100 rounded-full font-bold transition-all shadow-sm"
+                      >
+                        👐 一鍵揭曉所有牌面
+                      </button>
+                      <button
+                        onClick={resetReading}
+                        className="px-5 py-2 text-[11.5pt] bg-stone-100 border border-stone-200 text-stone-600 hover:bg-stone-200/60 rounded-full font-bold transition-all shadow-sm"
+                      >
+                        🔄 重新占卜
+                      </button>
+                    </div>
+                  </div>
 
-                          return (
-                            <div key={idx} className="p-4 rounded-xl bg-stone-50 border border-amber-200/40">
-                              <div className="flex justify-between items-center mb-1.5">
-                                <span className="text-[12pt] text-stone-550 font-mono font-bold">#{idx + 1} {posInfo.title}</span>
-                                {!isRevealed && (
-                                  <span className="text-[12pt] text-amber-600 font-bold animate-pulse">蓋牌中</span>
+                  <div className="flex flex-col items-center justify-center">
+                    <div className="text-center mb-8">
+                      <h4 className="text-[16pt] font-bold text-amber-900 tracking-wider">
+                        神聖牌陣：{SPREADS[spreadMode].name}
+                      </h4>
+                      <p className="text-[12pt] text-stone-500 mt-1 max-w-md mx-auto leading-relaxed">
+                        {SPREADS[spreadMode].desc}
+                      </p>
+                    </div>
+
+                    {/* 牌卡展示區域 */}
+                    <div className={`grid gap-8 justify-center w-full max-w-6xl px-2 ${
+                      spreadMode === 'single' ? 'grid-cols-1 max-w-sm' : 
+                      spreadMode === 'three' ? 'grid-cols-1 md:grid-cols-3' : 
+                      'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5'
+                    }`}>
+                      {SPREADS[spreadMode].positions.map((pos, idx) => {
+                        const card = drawnCards.find(d => d.positionIndex === idx);
+                        const isRevealed = revealedCards[idx];
+
+                        return (
+                          <div key={idx} className="flex flex-col items-center animate-fade-in">
+                            <div className="mb-3 text-center">
+                              <span className="text-[11.5pt] font-bold text-amber-900 bg-amber-100/70 px-3 py-1 rounded-full border border-amber-200/80">
+                                {pos.title}
+                              </span>
+                            </div>
+
+                            {card ? (
+                              <div className="w-full flex flex-col items-center">
+                                {/* 3D 翻牌容器 */}
+                                <div 
+                                  onClick={() => flipCard(idx)}
+                                  className="w-56 h-80 cursor-pointer perspective-1000 group relative mb-4"
+                                >
+                                  <div className={`w-full h-full duration-700 transform-style-3d transition-transform ${
+                                    isRevealed ? 'rotate-y-180' : ''
+                                  }`}>
+                                    {/* 牌背 */}
+                                    <div className="absolute inset-0 w-full h-full rounded-2xl border-2 border-amber-300 p-2 backface-hidden shadow-md flex flex-col justify-between"
+                                         style={{ background: 'linear-gradient(135deg, #fdfbf7 0%, #f5f0e6 100%)' }}>
+                                      <div className="absolute inset-2 border border-amber-200 rounded-xl flex flex-col items-center justify-between p-4">
+                                        <span className="text-[11pt] text-amber-700/60 font-mono font-bold">ANGEL ORACLE</span>
+                                        <div className="w-16 h-16 text-amber-500/60 group-hover:text-amber-500 transition-all animate-wing">
+                                          <svg viewBox="0 0 100 100" fill="currentColor">
+                                            <path d="M50 15C42 12 30 20 25 35C20 48 26 65 38 70C42 71 47 62 50 58C53 62 58 71 62 70C74 65 80 48 75 35C70 20 58 12 50 15Z" opacity="0.3"/>
+                                            <path d="M50 20C46 22 38 25 34 32C30 40 33 50 39 52C42 53 47 48 50 45C53 48 58 53 61 52C67 50 70 40 66 32C62 25 54 22 50 20Z" />
+                                          </svg>
+                                        </div>
+                                        <span className="text-[10.5pt] text-amber-600/60 font-mono font-bold animate-pulse">點擊揭曉牌面</span>
+                                      </div>
+                                    </div>
+
+                                    {/* 牌面 */}
+                                    <div className={`absolute inset-0 w-full h-full rounded-2xl border-2 p-2 backface-hidden rotate-y-180 shadow-lg flex flex-col justify-between bg-stone-900 text-amber-100 border-amber-400/60`}
+                                         style={{ 
+                                           boxShadow: isRevealed ? `0 10px 25px -4px ${card.glow}` : 'none'
+                                         }}>
+                                      <div className="absolute inset-2 border border-amber-500/30 rounded-xl flex flex-col justify-between p-3.5 bg-stone-950/80">
+                                        <div className="flex justify-between items-center text-[10pt] text-amber-300/80 font-mono">
+                                          <span>{card.element}</span>
+                                          <span>#{(card.id < 10 ? "0" : "") + card.id}</span>
+                                        </div>
+
+                                        <div className="my-auto text-center py-2">
+                                          <h5 className="text-[13pt] font-bold text-amber-200 leading-tight mb-1">
+                                            {card.name.split(' (')[0]}
+                                          </h5>
+                                          <p className="text-[9.5pt] text-amber-400/90 font-light mb-2">
+                                            {card.title.split(' (')[0]}
+                                          </p>
+                                          <div className="h-[1px] w-8 bg-amber-400/40 mx-auto my-2"></div>
+                                          <p className="text-[10pt] text-stone-300 italic font-light line-clamp-3">
+                                            {card.message}
+                                          </p>
+                                        </div>
+
+                                        <div className="text-center">
+                                          <span className="inline-block text-[9pt] bg-amber-900/60 text-amber-200 border border-amber-500/40 px-2 py-0.5 rounded font-mono">
+                                            {card.keyword}
+                                          </span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* 觀看深度寓意按鈕 */}
+                                {isRevealed && (
+                                  <button
+                                    onClick={() => setSelectedModalCard(card)}
+                                    className="w-full py-2 px-3 bg-amber-100 hover:bg-amber-200 border border-amber-300 text-amber-950 rounded-xl text-[11pt] font-bold transition-all shadow-sm flex items-center justify-center gap-1.5 mt-1"
+                                  >
+                                    🔍 觀看深度牌面寓意
+                                  </button>
                                 )}
                               </div>
-                              
-                              {isRevealed ? (
-                                <div>
-                                  <div className="flex items-center gap-2 flex-wrap">
-                                    <span className="text-[12.5pt] font-extrabold text-stone-850">{card.name.split(' (')[0]}</span>
-                                    <span className="text-[12pt] text-amber-700 font-semibold">({card.title.split(' (')[0]})</span>
-                                  </div>
-                                  <p className="text-[12pt] text-stone-600 leading-relaxed mt-2.5 italic font-medium">
-                                    {card.message}
-                                  </p>
-                                </div>
-                              ) : (
-                                <button 
-                                  onClick={() => flipCard(idx)}
-                                  className="w-full py-2 bg-amber-500/10 hover:bg-amber-500/20 text-amber-900 rounded-lg text-[12pt] font-bold transition-all border border-amber-500/20"
-                                >
-                                  點此翻開並觀看聖像
-                                </button>
-                              )}
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-
-                    <div className="mt-6 pt-4 border-t border-amber-100">
-                      <div className="text-[12pt] text-stone-550 leading-relaxed font-light">
-                        💡 **明亮大地色系已載入**。卡牌均採用您提供的經典拼圖做精準的原圖裁切對齊。請點擊上方牌卡翻面。
-                      </div>
+                            ) : null}
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
 
-                  <div className="lg:col-span-7 bg-gradient-to-b from-white to-amber-50/50 border-2 border-amber-400/40 rounded-2xl p-6 md:p-8 shadow-md flex flex-col justify-between">
-                    <div>
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center gap-2">
-                          <span className="p-1.5 bg-amber-100 rounded-full text-amber-600 text-[12pt]">📋</span>
-                          <h3 className="text-[14pt] font-bold text-amber-950 tracking-wider">
-                            您的專屬 AI 解讀提示詞語法
-                          </h3>
-                        </div>
-                      </div>
-                      
-                      <p className="text-[12pt] text-stone-600 leading-relaxed font-light mb-4">
-                        下方語法已結合您的<b>【問卜問題】</b>、<b>【真實占卜日期 {divinationDate}】</b>與抽出卡牌。複製並貼上到常用 AI（如 ChatGPT、Claude 或 Gemini）即可解讀！
-                      </p>
-
-                      <div className="bg-stone-50 border border-amber-200/60 p-5 rounded-xl text-[12pt] leading-relaxed font-mono text-stone-800 h-[360px] overflow-y-auto whitespace-pre-wrap select-all scrollbar-thin shadow-inner font-medium w-full mb-6">
-                        {generateAiPromptText()}
-                      </div>
-
-                      <div className="border-t border-amber-200 pt-6 mb-4">
-                        <h4 className="text-[13pt] font-bold text-amber-900 mb-3 flex items-center gap-2">
-                          <span>✨</span> 傳播大天使祝福與光芒 (Share the Light)
+                  {}
+                  {/* AI 提示詞一鍵複製與匯出區 */}
+                  <div className="bg-white/90 border border-amber-200 rounded-2xl p-6 shadow-md max-w-4xl mx-auto mt-12">
+                    <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-4">
+                      <div>
+                        <h4 className="text-[15pt] font-bold text-amber-950 flex items-center gap-2">
+                          <span>✨ 專屬 AI 靈魂心靈諮商提示詞</span>
                         </h4>
-                        <p className="text-[12pt] text-stone-600 leading-relaxed mb-4">
-                          覺得抽出的天使指引很準、很有力量嗎？您可以一鍵產生精美的占卜結果，直接傳送到 LINE 或複製成完美的社群貼文分享給朋友，為大家帶來暖心療癒！
+                        <p className="text-[11.5pt] text-stone-600 font-light mt-1">
+                          包含完整的牌面象徵、深度寓意與大地指引。複製後可直接貼入 ChatGPT / Claude / Gemini 獲得深度諮商！
                         </p>
-                        
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                          <button
-                            onClick={shareToLine}
-                            className="py-3 px-4 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl text-[12pt] transition-all flex items-center justify-center gap-2 shadow-sm active:scale-95"
-                          >
-                            <span className="text-[14pt]">💬</span> 傳送至 LINE
-                          </button>
-
-                          <button
-                            onClick={shareToFacebook}
-                            className="py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-[12pt] transition-all flex items-center justify-center gap-2 shadow-sm active:scale-95"
-                          >
-                            <span className="text-[14pt]">👥</span> 分享到 FB
-                          </button>
-
-                          <button
-                            onClick={handleCopyShareText}
-                            className="py-3 px-4 bg-amber-50 hover:bg-amber-100 border border-amber-300 text-amber-900 font-bold rounded-xl text-[12pt] transition-all flex items-center justify-center gap-2 shadow-sm active:scale-95"
-                          >
-                            <span className="text-[14pt]">📝</span> 複製社群貼文
-                          </button>
-                        </div>
                       </div>
-                    </div>
-
-                    <div className="mt-6 pt-4 border-t border-amber-100">
                       <button
                         onClick={handleCopyPrompt}
-                        className="w-full py-4.5 bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-white font-bold rounded-full text-[12.5pt] tracking-widest shadow-md shadow-amber-600/10 hover:shadow-lg hover:shadow-amber-600/35 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2"
+                        className="px-6 py-3 bg-gradient-to-r from-amber-600 to-amber-700 text-white font-bold rounded-full shadow hover:shadow-md transition-all text-[11.5pt] whitespace-nowrap"
                       >
-                        <span>📋 一鍵複製 AI 天使占卜提示詞</span>
+                        📋 一鍵複製 AI 提示詞
                       </button>
-                      <p className="text-center text-[12pt] text-stone-550 mt-3">
-                        點擊按鈕直接複製，貼入對話框即可享受高規格「大天使諮商師」的心靈指引。
-                      </p>
+                    </div>
+
+                    <textarea
+                      readOnly
+                      value={generateAiPromptText()}
+                      className="w-full h-36 p-3.5 bg-stone-50 border border-amber-200/80 rounded-xl text-stone-700 text-[10.5pt] font-mono leading-relaxed focus:outline-none resize-none"
+                    />
+
+                    <div className="mt-6 pt-4 border-t border-amber-100 flex flex-col sm:flex-row justify-between items-center gap-4">
+                      <span className="text-[11pt] text-stone-550">
+                        💖 覺得指引有幫助？分享這份大天使的祝福給身邊的朋友：
+                      </span>
+                      <div className="flex gap-3">
+                        <button
+                          onClick={handleCopyShareText}
+                          className="px-4 py-2 bg-amber-100 hover:bg-amber-200 text-amber-900 border border-amber-300 rounded-full text-[11pt] font-semibold transition-all"
+                        >
+                          🔗 複製社交貼文
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
+              )}
+            </main>
+          ) : (
+            /* 22 大天使牌義圖鑑視角 */
+            <main className="max-w-6xl mx-auto px-4 mt-8 relative z-10 flex-grow">
+              <div className="text-center max-w-3xl mx-auto mb-8">
+                <h2 className="text-[22pt] font-light text-amber-950 tracking-widest mb-2">
+                  22 大天使與雙生光聖義圖鑑
+                </h2>
+                <p className="text-[12pt] text-stone-600 font-light leading-relaxed">
+                  探索大天使與神聖雙生光的靈魂象徵、能量寓意與日常生活實踐指引。點擊卡牌可閱讀完整深度聖義。
+                </p>
               </div>
-            )}
-          </main>
 
-          <footer className="text-center text-[12pt] text-stone-400 mt-16 max-w-4xl mx-auto px-4 border-t border-amber-200 pt-6">
-            <p>「在晨曦殿堂與天使共舞，將祂們的訊息作為身心扎根的溫柔提醒。」</p>
-            <p className="mt-2 font-mono">© 2026 Angel Oracle - Warm Grounding Temple. Designed with Sacred Artworks.</p>
-          </footer>
+              {/* 搜尋與篩選列 */}
+              <div className="bg-white/80 backdrop-blur border border-amber-200 rounded-2xl p-4 mb-8 max-w-3xl mx-auto shadow-sm flex flex-col sm:flex-row gap-4 items-center justify-between">
+                <div className="relative w-full sm:w-2/3">
+                  <input
+                    type="text"
+                    placeholder="搜尋大天使名字、關鍵字或牌義（如：保護、豐盛、寬恕）..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full px-4 py-2.5 bg-stone-50 border border-amber-200 rounded-xl text-[11.5pt] text-stone-800 focus:outline-none focus:border-amber-500"
+                  />
+                </div>
 
-          {toastMessage && (
-            <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-white border border-amber-300 text-amber-900 text-[12pt] px-6 py-3.5 rounded-full shadow-lg flex items-center gap-2 backdrop-blur-md animate-float">
-              <span>🌾</span>
-              <span className="font-bold">{toastMessage}</span>
+                <div className="flex gap-2 w-full sm:w-auto justify-center">
+                  <button
+                    onClick={() => setFilterType("all")}
+                    className={`px-3.5 py-2 rounded-xl text-[11pt] font-semibold transition-all ${
+                      filterType === 'all' ? 'bg-amber-600 text-white' : 'bg-amber-50 text-amber-900 border border-amber-200'
+                    }`}
+                  >
+                    全部 (22)
+                  </button>
+                  <button
+                    onClick={() => setFilterType("primary")}
+                    className={`px-3.5 py-2 rounded-xl text-[11pt] font-semibold transition-all ${
+                      filterType === 'primary' ? 'bg-amber-600 text-white' : 'bg-amber-50 text-amber-900 border border-amber-200'
+                    }`}
+                  >
+                    主要大天使
+                  </button>
+                  <button
+                    onClick={() => setFilterType("twin")}
+                    className={`px-3.5 py-2 rounded-xl text-[11pt] font-semibold transition-all ${
+                      filterType === 'twin' ? 'bg-amber-600 text-white' : 'bg-amber-50 text-amber-900 border border-amber-200'
+                    }`}
+                  >
+                    雙生光大天使
+                  </button>
+                </div>
+              </div>
+
+              {/* 圖鑑網格 */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filteredGalleryCards.map((card) => (
+                  <div
+                    key={card.id}
+                    onClick={() => setSelectedModalCard(card)}
+                    className="bg-white/90 border border-amber-200/90 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all cursor-pointer group flex flex-col justify-between hover:border-amber-400"
+                  >
+                    <div>
+                      <div className="flex justify-between items-start mb-3">
+                        <span className="text-[10pt] font-mono font-bold text-amber-700 bg-amber-100/80 px-2.5 py-0.5 rounded-full border border-amber-200">
+                          #{card.id < 10 ? "0" + card.id : card.id} · {card.element}
+                        </span>
+                        <span className={`text-[9.5pt] px-2 py-0.5 rounded font-semibold ${
+                          card.type === 'primary' ? 'bg-amber-900 text-amber-100' : 'bg-amber-800/80 text-amber-50'
+                        }`}>
+                          {card.type === 'primary' ? '主要大天使' : '雙生光大天使'}
+                        </span>
+                      </div>
+
+                      <h3 className="text-[14pt] font-bold text-amber-950 group-hover:text-amber-700 transition-colors mb-1">
+                        {card.name}
+                      </h3>
+                      <p className="text-[11pt] text-amber-850 font-medium mb-3">
+                        {card.title}
+                      </p>
+
+                      <p className="text-[11pt] text-stone-600 line-clamp-3 font-light leading-relaxed mb-4">
+                        {card.meaning}
+                      </p>
+                    </div>
+
+                    <div className="pt-3 border-t border-amber-100 flex justify-between items-center text-[10.5pt] text-amber-900 font-bold">
+                      <span>🏷️ {card.keyword}</span>
+                      <span className="group-hover:translate-x-1 transition-transform">詳情 →</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </main>
+          )}
+
+          {}
+          {/* 深度牌面寓意與靈魂檔案 Modal */}
+          {selectedModalCard && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/60 backdrop-blur-sm animate-fade-in">
+              <div className="bg-white border border-amber-300 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 sm:p-8 relative no-scrollbar">
+                {/* 關閉按鈕 */}
+                <button
+                  onClick={() => setSelectedModalCard(null)}
+                  className="absolute top-5 right-5 w-9 h-9 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 flex items-center justify-center font-bold text-lg transition-all"
+                >
+                  ✕
+                </button>
+
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="text-[11pt] font-mono font-bold text-amber-800 bg-amber-100 px-3 py-1 rounded-full border border-amber-200">
+                    #{selectedModalCard.id < 10 ? "0" + selectedModalCard.id : selectedModalCard.id} · {selectedModalCard.element}
+                  </span>
+                  <span className="text-[11pt] text-stone-500 font-light">
+                    {selectedModalCard.type === 'primary' ? '大天使主頻率' : '神聖雙生光'}
+                  </span>
+                </div>
+
+                <h3 className="text-[18pt] font-bold text-amber-950 mb-1">
+                  {selectedModalCard.name}
+                </h3>
+                <h4 className="text-[12pt] font-semibold text-amber-800 mb-4">
+                  {selectedModalCard.title}
+                </h4>
+
+                {/* 天使細語 */}
+                <div className="bg-amber-50/80 border-l-4 border-amber-500 p-4 rounded-r-2xl mb-6">
+                  <p className="text-[12pt] text-amber-950 font-medium italic leading-relaxed">
+                    {selectedModalCard.message}
+                  </p>
+                </div>
+
+                {/* 深度寓意解析三部曲 */}
+                <div className="space-y-5 text-[11.5pt] leading-relaxed text-stone-700">
+                  <div>
+                    <h5 className="font-bold text-amber-950 text-[12.5pt] flex items-center gap-2 mb-1.5">
+                      <span>🎨 牌面神聖象徵 (Symbolism)</span>
+                    </h5>
+                    <p className="bg-stone-50 p-3 rounded-xl border border-stone-200/80 text-stone-700">
+                      {selectedModalCard.symbolism}
+                    </p>
+                  </div>
+
+                  <div>
+                    <h5 className="font-bold text-amber-950 text-[12.5pt] flex items-center gap-2 mb-1.5">
+                      <span>🕊️ 深度靈性寓意 (Deep Meaning)</span>
+                    </h5>
+                    <p className="bg-stone-50 p-3.5 rounded-xl border border-stone-200/80 text-stone-700 leading-relaxed font-light">
+                      {selectedModalCard.meaning}
+                    </p>
+                  </div>
+
+                  <div>
+                    <h5 className="font-bold text-amber-950 text-[12.5pt] flex items-center gap-2 mb-1.5">
+                      <span>🌱 日常生活指引與實踐 (Action Step)</span>
+                    </h5>
+                    <p className="bg-amber-50/60 p-3.5 rounded-xl border border-amber-200/80 text-amber-950 font-medium">
+                      {selectedModalCard.action}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-8 pt-4 border-t border-amber-100 flex justify-end">
+                  <button
+                    onClick={() => setSelectedModalCard(null)}
+                    className="px-8 py-2.5 bg-amber-600 hover:bg-amber-700 text-white rounded-full font-bold transition-all shadow"
+                  >
+                    理解並接納啟示
+                  </button>
+                </div>
+              </div>
             </div>
           )}
+
+          {}
+          <footer className="mt-16 text-center text-[11pt] text-stone-500 font-light border-t border-amber-200/40 py-6">
+            <p>👼 願大天使的愛、光芒與和平，永遠守護您的靈魂旅程 🌿</p>
+          </footer>
         </div>
       );
     }
 
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<App />);
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
   </script>
 </body>
 </html>
